@@ -450,8 +450,10 @@ def create_order():
         "positions": positions
     }
 
-    try:
+try:
         resp = requests.post(f"{MS_BASE}/entity/customerorder", headers=ms_headers(), json=order_data, timeout=15)
+        print("STATUS:", resp.status_code)
+        print("BODY:", resp.text[:1000])
         resp.raise_for_status()
         return jsonify({"ok": True, "name": resp.json().get("name", "")})
     except Exception as e:
