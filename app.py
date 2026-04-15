@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template_string
+from flask import Flask, request, jsonify, render_template_string, Response
 import requests
 import os
 
@@ -194,7 +194,7 @@ HTML = '''<!DOCTYPE html>
   <div class="search-bar">
     <input type="text" id="search" placeholder="Пошук товару..." oninput="filterProducts()">
   </div>
-  <div id="catalog">{{ catalog_html }}</div>
+ <div id="catalog">{{ catalog_html | safe }}</div>
 </main>
 <div class="modal-overlay" id="modal">
   <div class="modal">
