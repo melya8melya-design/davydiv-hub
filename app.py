@@ -448,6 +448,7 @@ def create_order():
         "description": comment,
         "organization": {"meta": {"href": f"{MS_BASE}/entity/organization/{org_id}", "type": "organization", "mediaType": "application/json"}},
         "agent": {"meta": {"href": f"{MS_BASE}/entity/counterparty/{counterparty_id}", "type": "counterparty", "mediaType": "application/json"}},
+        "store": {"meta": {"href": f"{MS_BASE}/entity/store/9bfb03d4-d17f-11e9-0a80-05370019bfc2", "type": "store", "mediaType": "application/json"}},
         "positions": positions
     }
 
