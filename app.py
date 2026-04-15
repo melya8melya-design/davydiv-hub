@@ -456,8 +456,13 @@ def create_order():
         resp = requests.post(f"{MS_BASE}/entity/customerorder", headers=ms_headers(), json=order_data, timeout=15)
         resp.raise_for_status()
         return jsonify({"ok": True, "name": resp.json().get("name", "")})
-    except Exception as e:
-        return jsonify({"ok": False, "error": str(e)})
+except Exception as e:
+        detail = {}
+        try:
+            detail = resp.json()
+        except:
+            pass
+        return jsonify({"ok": False, "error": str(e), "detail": str(detail)})
 
 
 if __name__ == '__main__':
