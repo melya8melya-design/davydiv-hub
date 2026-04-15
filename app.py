@@ -10,7 +10,6 @@ def ms_headers():
     return {
         "Authorization": f"Bearer {os.environ.get('MOYSKLAD_TOKEN', '')}",
         "Content-Type": "application/json",
-        "Accept-Encoding": "gzip"
     }
 
 def get_clients():
